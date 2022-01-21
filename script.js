@@ -38,7 +38,7 @@ const format = () => {
             newline = true
             outString += "\n"
         }
-        if (!slString[i].match(/[{|}|\[|\]]/gm) && slString[i + 1].match(/[\]|}]/gm)) {
+        if (slString[i + 1] && !slString[i].match(/[{|}|\[|\]]/gm) && slString[i + 1].match(/[\]|}]/gm)) {
             indentCounter--;
             newline = true
             outString += "\n"
