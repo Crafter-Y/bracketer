@@ -5,6 +5,7 @@ const format = () => {
     let indentCounter = 0
     let indentRate = 2
     let newline = true
+    let stringMode = false
     for (let i = 0; i < slString.length; i++) {
         if (newline) {
             for (let j = 0; j < indentCounter * indentRate; j++) {
@@ -13,6 +14,10 @@ const format = () => {
             newline = false
         }
         outString += slString[i]
+        if (slString[i] == "\"") {
+            stringMode = !stringMode
+        }
+        if (stringMode) continue;
         if (slString[i] == "{") {
             indentCounter++;
             newline = true
